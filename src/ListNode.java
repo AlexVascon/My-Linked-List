@@ -27,6 +27,10 @@ public class ListNode <T>{
         return next;
     }
 
+    public void setNext(ListNode<T> next) {
+        this.next = next;
+    }
+
     // reverses ListNode order
     public ListNode<T> reverse(ListNode<T> head) {
         if(head == null) {

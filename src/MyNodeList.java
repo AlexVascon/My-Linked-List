@@ -2,14 +2,17 @@ public class MyNodeList<T> {
 
     private ListNode<T> head;
     private ListNode<T> next;
+    private int size;
 
     public void insert(T value) {
         if(head == null) {
             // head is set as start of linked list
             head = new ListNode<>(value);
+            size = 1;
         } else {
             // recursion. Elements added to list
             head.insert(value);
+            size++;
         }
     }
 
@@ -56,6 +59,22 @@ public class MyNodeList<T> {
             return head;
         }
         return null;
+    }
+
+    public ListNode<T> delete(int position) {
+        // sets current node
+        ListNode<T> previous = head;
+        int count = 0;
+        // list starts from 0
+        while(count < position -1) {
+            previous = previous.next();
+            count++;
+        }
+        ListNode<T> current = previous.next();
+        previous.setNext(current.next());
+        current.setNext(null);
+        size--;
+        return current;
     }
 
     public MyIterator<T> myIterator() {

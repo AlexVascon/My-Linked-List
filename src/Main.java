@@ -10,12 +10,8 @@ public class Main {
         intList.insert(8);
         intList.insert(6);
 
-        intList.print();
 
         MyIterator<Integer> myIterator = intList.myIterator();
-        System.out.println();
-        myIterator.print();
-        System.out.println();
 
         while(myIterator.hasNext()) {
             if(myIterator.getPrevious() == null) {
