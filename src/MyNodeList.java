@@ -24,6 +24,14 @@ public class MyNodeList<T> {
         return false;
     }
 
+    public void clear() {
+        head = null;
+    }
+
+    public void insert(int index, T value) {
+
+    }
+
     public ListNode<T> next() {
        if(next == null) {
            // initialises next reference
@@ -35,21 +43,24 @@ public class MyNodeList<T> {
     }
 
     public boolean contains(T value) {
-        if(head == null) {
-            return false;
+        if(head != null ) {
+            return  head.contains(value);
         }
-        return head.contains(value);
+        return false;
     }
 
     public ListNode<T> get(T value) {
-        if(head == null) {
-            return null;
+        if(head!=null) {
+            return head.get(value);
         }
-        return head.get(value);
+        return null;
     }
 
     public ListNode<T> getNext() {
         // return next without moving to it
+        if(next == null) {
+            next = head;
+        }
         return next;
     }
 
